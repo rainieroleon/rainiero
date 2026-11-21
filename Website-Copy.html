@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rainiero León | AI Prompt &amp; Skills Engineer</title>
+<meta name="description" content="Rainiero León turns your repetitive work into tested, documented AI skills inside ChatGPT, Claude, and Gemini. English first, Spanish on request. Book your free AI Workflow Check.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108.37 108.37'%3E%3Crect width='108.37' height='108.37' fill='%23FFFFFF'/%3E%3Cg transform='translate%286.25,12.498%29' fill='none' stroke='%230B0F14' stroke-width='8.5' stroke-linejoin='miter' stroke-miterlimit='10'%3E%3Cpath d='M10,10 H70 V32 L32,70 H10 Z'/%3E%3Cpath d='M58,44 L84,70 A33.375,33.375 0 0 1 36,40'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+  :root {
+    /* Grays palette (design system: Rainiero León - Design System) */
+    --paper: #FFFFFF; --mist: #F3F4F6; --cloud: #E5E7EB; --fog: #D1D5DB; --ash-gray: #9CA3AF;
+    --steel-gray: #6B7280; --pewter: #4B5563; --slate: #374151; --charcoal: #1F2937; --onyx: #0B0F14;
+    /* Role tokens */
+    --bg: var(--paper); --surface: var(--mist); --border: var(--cloud);
+    --ink: var(--charcoal); --ink-muted: var(--pewter); --accent: var(--steel-gray);
+    /* Spacing */
+    --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px; --space-6: 48px; --space-8: 64px; --space-10: 80px;
+    /* Type */
+    --sans: Roboto, "Helvetica Neue", Helvetica, sans-serif;
+    --ui: Calibri, Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; }
+  section { padding: var(--space-10) var(--space-6); border-bottom: 1px solid var(--border); }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1, h2, h3 { color: var(--ink); font-family: var(--sans); font-weight: 700; }
+  h1 { font-size: clamp(32px, 6vw, 42.67px); line-height: 1.2; margin-bottom: var(--space-3); }   /* heading-lg */
+  h2 { font-size: 32px; line-height: 1.2; margin-bottom: var(--space-2); }                          /* heading */
+  h3 { font-size: 24px; line-height: 1.3; margin-bottom: var(--space-1); }                          /* subheading */
+  p { margin-bottom: var(--space-2); }
+  .eyebrow, .caption, .tag, .btn, .faq summary, nav { font-family: var(--ui); }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 16px; line-height: 1.4; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .caption { font-size: 16px; line-height: 1.4; color: var(--ink-muted); }                          /* caption */
+  .lead { font-size: 21.33px; line-height: 1.5; max-width: 720px; }                                 /* body-lg */
+  .btn {
+    display: inline-block; background: var(--slate); color: var(--paper);
+    padding: var(--space-2) var(--space-4); border-radius: 6px; text-decoration: none;
+    font-weight: 700; font-size: 21.33px; line-height: 1.3; border: 1px solid var(--slate);       /* callout */
+  }
+  .btn:hover { background: var(--charcoal); border-color: var(--charcoal); }
+  .btn-sub { display: block; margin-top: var(--space-1); }
+  .grid { display: grid; gap: var(--space-4); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-3); }
+  .tag {
+    display: inline-block; font-size: 16px; line-height: 1.4; text-transform: uppercase; letter-spacing: 1px;
+    border: 1px dashed var(--accent); color: var(--ink-muted); border-radius: 4px; padding: 2px var(--space-1); margin-bottom: var(--space-2);
+  }
+  .stat { font-size: 42.67px; font-weight: 700; color: var(--ink); line-height: 1.2; margin-bottom: var(--space-1); }
+  ul.clean { list-style: none; }
+  ul.clean li { padding: var(--space-1) 0 var(--space-1) 28px; position: relative; }
+  ul.clean li::before { content: ""; position: absolute; left: 6px; top: 19px; width: 6px; height: 6px; background: var(--accent); }
+  .partner-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--space-2); margin-top: var(--space-4); }
+  .partner-slot { border: 1px dashed var(--fog); border-radius: 8px; padding: var(--space-4) var(--space-2); text-align: center; color: var(--ink-muted); font-family: var(--ui); font-size: 16px; line-height: 1.4; }
+  .partner-slot.filled { border: 1px solid var(--border); background: var(--surface); color: var(--ink); }
+  .partner-slot.filled strong { display: block; font-size: 18px; font-family: var(--sans); }
+  .shot { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-3); min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  .case dt { font-family: var(--ui); font-weight: 700; color: var(--ink); margin-top: var(--space-2); text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
+  .case dd { margin: 4px 0 0; }
+  blockquote { font-size: 18px; color: var(--ink); margin-bottom: var(--space-2); }
+  .who { font-family: var(--ui); font-size: 16px; line-height: 1.4; color: var(--ink-muted); }
+  .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-3); margin-bottom: var(--space-2); }
+  .faq summary { cursor: pointer; font-weight: 700; color: var(--ink); font-size: 18px; }
+  .faq details p { margin: var(--space-2) 0 0; }
+  .center { text-align: center; }
+  /* Logo lockup: Roboto Bold wordmark ("Rainiero" Pewter, name Onyx), slogan Roboto Bold uppercase, wide tracking, Pewter */
+  nav { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); justify-content: space-between; align-items: center; padding: var(--space-3); max-width: 1080px; margin: 0 auto; }
+  nav .links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); }
+  nav a { color: var(--slate); text-decoration: none; font-size: 16px; }
+  nav a:hover { color: var(--onyx); }
+  .logo { display: flex; align-items: center; gap: var(--space-2); }
+  .logo svg { width: 56px; height: 56px; flex-shrink: 0; color: var(--onyx); }
+  .logo-text { font-family: var(--sans); font-weight: 700; color: var(--onyx); font-size: 24px; line-height: 1.1; }
+  .logo-text .rn, .lockup-name .rn { color: var(--pewter); }
+  .logo-text small, .lockup-slogan { display: block; font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--pewter); }
+  .logo-text small { font-size: 11px; margin-top: 6px; }
+  .lockup { display: inline-flex; flex-direction: column; align-items: center; gap: 14px; padding: var(--space-3); }
+  .lockup svg { width: 105px; height: 88px; color: var(--onyx); }
+  .lockup-name { font-family: var(--sans); font-weight: 700; font-size: 38px; line-height: 1; color: var(--onyx); }
+  .lockup-slogan { font-size: 13px; }
+  footer { padding: var(--space-6) var(--space-3) var(--space-8); text-align: center; }
+  footer a { color: var(--slate); margin: 0 10px; }
+  .note { border-left: 3px solid var(--fog); padding-left: var(--space-2); margin-top: var(--space-3); }
+  @media (max-width: 600px) { section { padding: var(--space-10) var(--space-3); } }
+</style>
+</head>
+<body>
+
+<!--
+  Copy source: Brand Book - Rainiero León v1.2 (2026-11-21). Where older vault notes disagree, the Brand Book wins.
+  Design: "Rainiero León - Design System" (Grays palette, Roboto, Calibri for captions and UI, role tokens, 8px spacing scale)
+  and the "Logo & Brand Identity" canvas (refined R mark). Market: United States only, fixed prices in USD.
+  Slogan "Solving Problems. Faster" appears only inside the logo lockup (design system rule). Logo: refined R mark as inline SVG,
+  heavier favicon stroke under 64 px. The old PNG logo files in the vault are not used here.
+  Anything inside a dashed "Template" tag is a placeholder. Replace it with real client data before launch.
+-->
+
+<nav>
+  <div class="logo"><svg viewBox="0 0 108.37 108.37" role="img" aria-label="Rainiero León R mark"><g transform="translate(6.25,12.498)" fill="none" stroke="currentColor" stroke-width="8.5" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M10,10 H70 V32 L32,70 H10 Z"></path><path d="M58,44 L84,70 A33.375,33.375 0 0 1 36,40"></path></g></svg><div class="logo-text"><span class="rn">Rainiero</span> León<small>Solving Problems. Faster</small></div></div>
+  <div class="links">
+    <a href="#why">Why Ray</a>
+    <a href="#before-after">How it works</a>
+    <a href="#cases">Results</a>
+    <a href="#faq">FAQ</a>
+    <a href="#book">Free check</a>
+  </div>
+</nav>
+
+<!-- ============ SECTION 1: HERO ============ -->
+<section id="hero">
+  <div class="wrap grid g2" style="align-items:center;">
+    <div>
+    <p class="eyebrow">AI Prompt &amp; Skills Engineer · English first · Español on request</p>
+    <h1>You pay for AI.<br>Now make it do the work.</h1>
+    <p class="lead">I turn your repetitive tasks (proposals, onboarding, follow-ups, content, reporting) into tested, documented AI skills. Built inside the tools you already use, run the same way every time, and handed over so you own them and can run them without me.</p>
+    <p class="caption">Example: call notes to a client-ready proposal in about 3 minutes (estimate, measured per client).</p>
+    <p style="margin-top:28px;">
+      <a class="btn" href="#book">Book your free AI Workflow Check</a>
+      <span class="caption btn-sub">Start with a free 20-minute AI Workflow Check. Prefer async? Send a 5-minute Loom of your week and get a video reply.</span>
+    </p>
+    </div>
+    <div class="shot">
+      <span class="tag">Template · replace with a real screenshot</span>
+      <p class="caption">One real screenshot of a skill running, for example call notes in and a client-ready proposal out. No stock images, no robots, no glowing brains.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: PARTNERS ============ -->
+<section id="partners">
+  <div class="wrap center">
+    <p class="eyebrow">Clients &amp; partners</p>
+    <h2>First client: Atlassian</h2>
+    <p class="caption">Ray's first client is Atlassian. More names join as founding clients sign on.</p>
+    <div class="partner-row">
+      <div class="partner-slot filled"><strong>Atlassian</strong>Rovo · First client</div>
+      <div class="partner-slot">[Partner name / logo]</div>
+      <div class="partner-slot">[Partner name / logo]</div>
+      <div class="partner-slot">[Partner name / logo]</div>
+      <div class="partner-slot">[Partner name / logo]</div>
+    </div>
+    <p class="caption" style="margin-top:18px;">Disclosure: Ray works at Atlassian and shares Rovo's benefits as part of this partnership.</p>
+    <!-- Confirm the disclosure wording with Atlassian's social media policy before launch (Brand Book section 8). Use the Atlassian logo only with their written approval. Also swap 2-3 empty slots for US business groups or chambers of commerce once partnered. -->
+  </div>
+</section>
+
+<!-- ============ SECTION 3: WHY US ============ -->
+<section id="why">
+  <div class="wrap grid g2" style="align-items:center;">
+    <div>
+      <p class="eyebrow">Why Ray</p>
+      <h2>Tested, not guessed.</h2>
+      <p>Most people use AI one chat at a time. Same question, different answer every day, and every chat starts from zero. You don't need a better prompt. You need a skill.</p>
+      <p>I spent seven years fixing enterprise software for customers across Europe. The method never changed: map the problem, build the fix, test it on the real case, write it down. Now I bring the same method to your AI. Every skill gets tested on your real work before you see it, and you own every prompt and every page of documentation.</p>
+      <p>My name, Rainiero, means "counselor of the people." Here's what being your counselor looks like: Happy, Helpful, Humble, Hungry. Good energy on every call, built so you don't depend on me, tested before I claim anything, and always learning the next tool.</p>
+      <p>Fixed prices. Plain language. No hype.</p>
+    </div>
+    <div class="card">
+      <h3>What I build for you</h3>
+      <ul class="clean">
+        <li>Up to 3 custom AI skills in the tool you already pay for: Claude (Projects and Skills), ChatGPT (Custom GPTs), or Gemini (Gems)</li>
+        <li>Each skill tested with your real examples before you see it</li>
+        <li>Plain-language documentation and a recorded walkthrough, so you own and run every skill</li>
+        <li>Two recorded 45-minute training sessions and 30 days of async support</li>
+        <li>Retesting when AI models change, with the AI Skills Partner plan</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: 3 KEY BENEFITS ============ -->
+<section id="benefits">
+  <div class="wrap">
+    <p class="eyebrow">Three reasons owners pick Ray</p>
+    <h2>A troubleshooter's method. A business owner's language.</h2>
+    <div class="grid g3" style="margin-top:32px;">
+      <div class="card">
+        <h3>Experience from finance to enterprise tech</h3>
+        <p>Ray studied marketing, started in the financial market, then spent seven years in enterprise software at Becton Dickinson, Unit4, MicroStrategy, and Atlassian. Translation: he understands your numbers, your customers, and your systems, and he talks in hours saved, not tech jargon.</p>
+      </div>
+      <div class="card">
+        <h3>Your AI, in English and Spanish</h3>
+        <p>Ray works in English and speaks Spanish as his native language. Your skills sound like your business in English, and if some of your clients prefer Spanish, he builds a Spanish version from scratch. Written for real people, never machine-translated.</p>
+      </div>
+      <div class="card">
+        <h3>Fixed prices. You own the result.</h3>
+        <p>Fixed prices in USD, starting at $297. No hourly billing and no surprise invoices. Every skill, prompt, and page of documentation is yours, built so you can run it without me. If I built it, I own it until it works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4B: FOUR SKILL AREAS ============ -->
+<section id="skills">
+<div class="wrap">
+<p class="eyebrow">Four skill areas</p>
+<h2>Built well. Used safely. Run by you.</h2>
+<p class="lead">Every offer draws on the same four skills. Here is what each one means for your business.</p>
+<div class="grid g2" style="margin-top:32px;">
+<div class="card">
+<h3>AI agent creation and design</h3>
+<p>I design the role, instructions, knowledge, and tests behind each skill, including the long, structured prompts ("mega prompts") which carry your rules, your voice, and your examples. Your AI works the same way every time.</p>
+</div>
+<div class="card">
+<h3>Human-AI collaboration design</h3>
+<p>AI drafts, you decide. I map where the AI does the repeat work and where a person reviews, so you stay in charge of every judgment call.</p>
+</div>
+<div class="card">
+<h3>AI governance and responsible AI</h3>
+<p>Plain rules you can explain to clients: when a person checks the output, what you disclose, and which data stays out of AI tools. Practical guidance for small businesses, not legal advice.</p>
+</div>
+<div class="card">
+<h3>AI training and enablement</h3>
+<p>A plain-language guide, recorded walkthroughs, and two training sessions, so you and your team can run, check, and improve your skills without me.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ SECTION 5: SOCIAL PROOF ============ -->
+<section id="proof">
+  <div class="wrap center">
+    <p class="eyebrow">The track record</p>
+    <h2>Seven years of fixing enterprise software</h2>
+    <div class="grid g3" style="margin-top:36px;">
+      <div class="card">
+        <div class="stat">7 yrs</div>
+        <p>in enterprise software and data, at Atlassian, MicroStrategy, Unit4, and Becton Dickinson</p>
+      </div>
+      <div class="card">
+        <div class="stat">18</div>
+        <p>countries of finance teams supported on Unit4 ERP</p>
+      </div>
+      <div class="card">
+        <div class="stat">7</div>
+        <p>professional certifications, including AWS Certified Cloud Practitioner and MicroStrategy Certified Architect</p>
+      </div>
+    </div>
+    <div class="note" style="text-align:left; max-width:760px; margin:36px auto 0;">
+      <p><strong style="color:var(--ink);">Why now?</strong> AI use among US firms with fewer than 10 employees doubled in one year, from 9.5% to 20%. Solo operators lag at 8.4%, yet 92% of solo operators using AI report a positive business impact.</p>
+      <p class="caption">Source: Association for Enterprise Opportunity, The Main Street AI Paradox, June 2026.</p>
+    </div>
+    <!-- Swap or add once real numbers exist: Workflow Checks run, skills delivered, hours saved per client (measured). -->
+  </div>
+</section>
+
+<!-- ============ SECTION 6: BEFORE & AFTER ============ -->
+<section id="before-after">
+  <div class="wrap">
+    <p class="eyebrow">Your week, two ways</p>
+    <h2>Same business. Hours back.</h2>
+    <div class="grid g2" style="margin-top:32px;">
+      <div class="card">
+        <h3>Before</h3>
+        <ul class="clean">
+          <li>You pay for ChatGPT, Claude, or Gemini but still write every proposal by hand</li>
+          <li>The AI sounds generic, so you rewrite half of what it gives you</li>
+          <li>Same prompt, different answer every day. Nothing is saved, nothing is standard</li>
+          <li>Five or more hours a week vanish into onboarding emails, follow-ups, and reports</li>
+          <li>Everyone on your team uses AI their own way</li>
+          <li>You know you're falling behind, but there's zero time to learn prompt engineering</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>After</h3>
+        <ul class="clean">
+          <li>Paste your call notes, run the skill, review, send. A client-ready proposal in minutes</li>
+          <li>Every draft sounds like you, in English or Spanish</li>
+          <li>Skills run the same way every time, for you and your whole team</li>
+          <li>Those hours go back to clients, sales, and family</li>
+          <li>A written guide for every skill, so new hires get up to speed fast</li>
+          <li>When AI models change, your skills get retested and fixed (AI Skills Partner plan)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: CASE STUDIES ============ -->
+<section id="cases">
+  <div class="wrap">
+    <p class="eyebrow">Case studies</p>
+    <h2>Real tasks. Real skills. Measured results.</h2>
+    <p class="caption">Founding client program now open: the first 5 clients get the AI Skills Kit at $2,500 (standard $3,500) in exchange for a testimonial and a published case study. The three below show the format and target numbers. Each one gets replaced with a measured result as founding clients finish.</p>
+    <div class="grid g3" style="margin-top:32px;">
+      <div class="card case">
+        <span class="tag">Template · replace with founding client 1</span>
+        <h3>Coaching practice: proposals on autopilot</h3>
+        <dl>
+          <dt>Problem</dt>
+          <dd>A 2-person coaching business spent 45+ minutes writing each proposal by hand (estimate), around 5 hours a week.</dd>
+          <dt>Solution</dt>
+          <dd>A proposal skill in Claude Projects, trained on the owner's voice and tested with 3 real discovery calls.</dd>
+          <dt>Results</dt>
+          <dd>Target: call notes to client-ready proposal in about 3 minutes. Measured hours saved: [X hrs/week]. Proposals sent: [before → after].</dd>
+        </dl>
+      </div>
+      <div class="card case">
+        <span class="tag">Template · replace with founding client 2</span>
+        <h3>Consultancy: onboarding in English and Spanish</h3>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Every new client meant [X] onboarding emails written from zero, and Spanish-speaking clients got rough translations.</dd>
+          <dt>Solution</dt>
+          <dd>An onboarding assistant as a Custom GPT, with a Spanish version written separately. Documented with a one-page run guide.</dd>
+          <dt>Results</dt>
+          <dd>Built and handed over in 3 weeks. Onboarding time per client: [X min → Y min]. Client satisfaction: [score].</dd>
+        </dl>
+      </div>
+      <div class="card case">
+        <span class="tag">Template · replace with founding client 3</span>
+        <h3>Small team: one AI standard for everyone</h3>
+        <dl>
+          <dt>Problem</dt>
+          <dd>A [X]-person team each used AI their own way. Weekly content and reports took [X] hours and never matched.</dd>
+          <dt>Solution</dt>
+          <dd>Up to 3 shared skills in Gemini Gems (content repurposer, weekly report, follow-up writer), plus two recorded training sessions.</dd>
+          <dt>Results</dt>
+          <dd>Team hours saved per week: [X]. One new skill added every month through the AI Skills Partner plan.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="wrap">
+    <p class="eyebrow">What owners say</p>
+    <h2>Fewer chats. More done.</h2>
+    <p class="caption">Placeholders: replace each with a real quote from a founding client or past colleague, with written permission.</p>
+    <div class="grid g3" style="margin-top:32px;">
+      <div class="card">
+        <span class="tag">Template · experience angle</span>
+        <blockquote>"Ray asked about my margins before he asked about my prompts. He gets business, not only tech. My proposal skill worked on day one."</blockquote>
+        <p class="who">[Name], [Role], [Company], [City, State]</p>
+      </div>
+      <div class="card">
+        <span class="tag">Template · bilingual angle</span>
+        <blockquote>"Half my clients prefer Spanish. Ray built both versions, and neither one sounds like a robot. My clients noticed the difference right away."</blockquote>
+        <p class="who">[Name], [Role], [Company], [City, State]</p>
+      </div>
+      <div class="card">
+        <span class="tag">Template · ownership angle</span>
+        <blockquote>"I own every skill and every page of the guide. I run them myself, and they work the same way every time."</blockquote>
+        <p class="who">[Name], [Role], [Company], [City, State]</p>
+      </div>
+    </div>
+    <p class="center" style="margin-top:40px;">
+      <a class="btn" href="#book">Book your free AI Workflow Check</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: FAQs ============ -->
+<section id="faq" class="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>Good questions</h2>
+    <div style="margin-top:28px;">
+      <details>
+        <summary>What's the difference between a prompt and an AI skill?</summary>
+        <p>A prompt is one message. A skill is a saved, tested setup inside your AI tool, with instructions, your examples, and your brand voice built in. You run it the same way every time and get consistent, client-ready output instead of a new surprise every day.</p>
+      </details>
+      <details>
+        <summary>Which AI tools do you work with?</summary>
+        <p>Claude (Projects and Skills), ChatGPT (Custom GPTs), and Google Gemini (Gems). I build inside the tool you already pay for, so there's no new software to buy.</p>
+      </details>
+      <details>
+        <summary>Do I need any technical knowledge?</summary>
+        <p>No. I map your process, build the skill, and test it with your real work. You get a plain-language guide, two recorded training sessions, and 30 days of async support. If you can copy and paste, you can run your skills.</p>
+      </details>
+      <details>
+        <summary>Who owns the skills when we're done?</summary>
+        <p>You do. Every skill, prompt, and page of documentation is yours. The goal is a business you can run without me, not a business stuck waiting on me.</p>
+      </details>
+      <details>
+        <summary>How do we get started, and what does it cost?</summary>
+        <p>Start with the free 20-minute AI Workflow Check, live or async by Loom. If there's a fit, the next step is the AI Skills Audit ($297): a 60-minute session and a written report on your top 3 workflows, with estimated hours saved. The full $297 counts toward the AI Skills Kit if you book within 14 days. The Kit (up to 3 skills, built in 3 weeks) is $2,500 for the first 5 founding clients, then $3,500. To keep skills working and add a new one each month, the AI Skills Partner plan is $750/month. Fixed prices in USD, no hourly billing, and no price talk on the free call: the proposal comes by email.</p>
+      </details>
+<details>
+<summary>Who checks the AI's work?</summary>
+<p>You do, at the points we agree on. Every skill's guide marks where a person reviews the output before it goes to a client, and lists the data which should never go into an AI tool. This is practical guidance for small businesses, not legal advice.</p>
+</details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING CTA ============ -->
+<section id="book">
+  <div class="wrap center">
+    <h2>Get your hours back</h2>
+    <p class="lead" style="margin:0 auto 26px;">In 20 minutes, see which of your weekly tasks AI should handle first. Free, no price talk on the call. English first, Spanish available.</p>
+    <a class="btn" href="[Google Calendar booking link]">Book your free AI Workflow Check</a>
+    <span class="caption btn-sub">Rather skip the call? Send a 5-minute Loom of your week and get a video reply.</span>
+  </div>
+</section>
+
+<!-- ============ SECTION 10: LOGO LOCKUP (stacked) ============ -->
+<section id="lockup" style="border-bottom:none;">
+  <div class="wrap center">
+    <div class="lockup">
+      <svg viewBox="4 4 86 72" role="img" aria-label="Rainiero León R mark"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="10"><path d="M10,10 H70 V32 L32,70 H10 Z"></path><path d="M58,44 L84,70 A33.375,33.375 0 0 1 36,40" stroke-linecap="butt"></path></g></svg>
+      <div class="lockup-name"><span class="rn">Rainiero</span> León</div>
+      <div class="lockup-slogan">Solving Problems. Faster</div>
+    </div>
+    <p class="caption" style="margin-top:var(--space-2);">Denuedo. #Denuedo</p>
+  </div>
+</section>
+
+<footer>
+  <p class="caption">
+    <a href="https://rainieroleon.com">rainieroleon.com</a> ·
+    <a href="mailto:rainiero.leon@gmail.com">rainiero.leon@gmail.com</a>
+  </p>
+  <p class="caption">
+    <a href="https://www.linkedin.com/in/rainieroleon/">LinkedIn</a>
+    <a href="https://www.youtube.com/channel/UC-unYH4y1yW_BgA7-8vdu_Q/featured">YouTube</a>
+    <a href="https://www.instagram.com/rainieroleon/">Instagram</a>
+  </p>
+  <p class="caption" style="margin-top:14px;">© 2026 Rainiero León · AI Prompt &amp; Skills Engineer · Based in Wrocław, Poland · Serving US businesses · Prices in USD</p>
+</footer>
+
+</body>
+</html>
